@@ -6,11 +6,16 @@ export default function Controls({ config, setConfig, onTrain, onReset }) {
     <div className="bg-slate-900 border-b border-slate-800 p-4 flex flex-wrap items-center justify-between gap-6">
       <div className="flex flex-wrap items-center gap-6">
         
-        {/* Dataset Size Slider - Visible for all algorithms */}
+        {/* Dataset Size Slider - Iski wajah se slider screen par aayega */}
         <div className="flex flex-col gap-1 pr-4 border-r border-slate-800">
-          <label className="text-xs text-slate-400 font-medium">Dataset Size (N): <span className="text-indigo-400 font-mono">{config.datasetSize}</span></label>
+          <label className="text-xs text-slate-400 font-medium">
+            Dataset Size (N): <span className="text-indigo-400 font-mono">{config.datasetSize}</span>
+          </label>
           <input 
-            type="range" min="10" max="150" step="5" 
+            type="range" 
+            min="10" 
+            max="150" 
+            step="5" 
             value={config.datasetSize} 
             onChange={(e) => setConfig({...config, datasetSize: parseInt(e.target.value)})}
             className="w-36 accent-indigo-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer"
@@ -20,18 +25,28 @@ export default function Controls({ config, setConfig, onTrain, onReset }) {
         {config.algorithm === 'linear' ? (
           <>
             <div className="flex flex-col gap-1">
-              <label className="text-xs text-slate-400 font-medium">Learning Rate: <span className="text-indigo-400 font-mono">{config.learningRate}</span></label>
+              <label className="text-xs text-slate-400 font-medium">
+                Learning Rate: <span className="text-indigo-400 font-mono">{config.learningRate}</span>
+              </label>
               <input 
-                type="range" min="0.0001" max="0.001" step="0.0001" 
+                type="range" 
+                min="0.0001" 
+                max="0.001" 
+                step="0.0001" 
                 value={config.learningRate} 
                 onChange={(e) => setConfig({...config, learningRate: parseFloat(e.target.value)})}
                 className="w-40 accent-indigo-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer"
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="text-xs text-slate-400 font-medium">Epochs / Iterations: <span className="text-indigo-400 font-mono">{config.epochs}</span></label>
+              <label className="text-xs text-slate-400 font-medium">
+                Epochs / Iterations: <span className="text-indigo-400 font-mono">{config.epochs}</span>
+              </label>
               <input 
-                type="range" min="10" max="500" step="10" 
+                type="range" 
+                min="10" 
+                max="500" 
+                step="10" 
                 value={config.epochs} 
                 onChange={(e) => setConfig({...config, epochs: parseInt(e.target.value)})}
                 className="w-40 accent-indigo-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer"
@@ -40,9 +55,14 @@ export default function Controls({ config, setConfig, onTrain, onReset }) {
           </>
         ) : (
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-slate-400 font-medium">Clusters (K Value): <span className="text-indigo-400 font-mono">{config.k}</span></label>
+            <label className="text-xs text-slate-400 font-medium">
+              Clusters (K Value): <span className="text-indigo-400 font-mono">{config.k}</span>
+            </label>
             <input 
-              type="range" min="2" max="4" step="1" 
+              type="range" 
+              min="2" 
+              max="4" 
+              step="1" 
               value={config.k} 
               onChange={(e) => setConfig({...config, k: parseInt(e.target.value)})}
               className="w-40 accent-indigo-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer"
